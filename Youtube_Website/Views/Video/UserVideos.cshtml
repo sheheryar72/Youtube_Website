@@ -1,0 +1,219 @@
+﻿@model List<Youtube_Website.Models.Video>
+@{
+    var getmyvideos = (List<Youtube_Website.Models.Video>)ViewBag.myvideo;
+    Layout = null;
+    bool IsUserLoggedIn = Session["email"] == null;
+}
+<!--<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My Videos</title>
+</head>
+<body>
+    <div>
+        <ul>-->
+           @* <p>@Session["email"]</p>
+            @if (getmyvideos != null && getmyvideos.Count > 0)
+            {
+                foreach (var video1 in getmyvideos)
+                {
+                    <ol>
+                        <li>
+                            <a href="/Video/Play?id=@video1.id">@video1.title</a>
+                        </li>
+                    </ol>
+                }
+            }*@
+            @* @if (Model != null &&  Model.Count > 0)
+                {
+                foreach(var video in Model)
+                {
+                        <li>
+                            <a href="/Video/Play?id=@video.id" target="_blank">@video.title</a>
+                        </li>
+                    }
+                }*@
+        <!--</ul>
+    </div>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Magazine &mdash; My Videos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+    <meta name="author" content="FREEHTML5.CO" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Assets/Homepagevideotemplate/css/animate.css">
+    <link rel="stylesheet" href="~/Assets/Homepagevideotemplate/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assets/Homepagevideotemplate/css/bootstrap.css">
+
+    <link rel="stylesheet" href="~/Assets/Homepagevideotemplate/css/style.css">
+
+    <script src="~/Assets/Homepagevideotemplate/js/modernizr-2.6.2.min.js"></script>
+    @* <style>
+            img.img-responsive {
+                height: 250px;
+            }
+        </style>*@
+
+    <style>
+        #fh5co-header {
+            padding: 1em 1em;
+        }
+
+            #fh5co-header .fh5co-nav-toggle {
+                top: 1em;
+            }
+
+        h1, .h1, h2, .h2, h3, .h3 {
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+
+        #fh5co-header .fh5co-social {
+            position: absolute !important;
+            right: 3em !important;
+            top: 0px;
+            z-index: 99;
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            display: none;
+        }
+        #search_id {
+            background-color: red;
+            color: white;
+            font-weight: 600;
+            border: 0px solid white;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="fh5co-offcanvas">
+        <a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
+        <div class="fh5co-bio">
+
+            <figure>
+                <img src="~/Assets/Homepagevideotemplate/images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+            </figure>
+            <h3 class="heading">About Me</h3>
+            <h2>@Session["email"]</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+            <ul class="fh5co-social">
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-facebook"></i></a></li>
+                <li><a href="#"><i class="icon-instagram"></i></a></li>
+            </ul>
+        </div>
+        <div class="fh5co-menu">
+            <h3 style="color: orange;">Your Account</h3>
+            <div class="fh5co-box">
+
+                <h3 class="heading">@Session["name"]</h3>
+                <ul>
+                    @if (IsUserLoggedIn)
+                    {
+                        <li><a href="/User/SignIn/">Signin</a></li>
+                        <li><a href="/User/SignUp/">Signup</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Home/Index/">Home</a></li>
+                        <li><a href="/Video/MyVideos/">My Videos</a></li>
+                        <li><a href="/User/updateUserInfo/">Settings</a></li>
+                        <li><a href="/User/Logout">Logout</a></li>
+                        <li><button><a href="/Video/Upload/">Upload Video</a></button></li>
+                    }
+                </ul>
+            </div>
+            <div class="fh5co-box">
+                <h3 class="heading">Search</h3>
+                <form action="#">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Type a keyword">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END #fh5co-offcanvas -->
+    <header id="fh5co-header">
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+                <ul class="fh5co-social">
+                    <li><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon-facebook"></i></a></li>
+                    <li><a href="#"><i class="icon-instagram"></i></a></li>
+                </ul>
+                <div class="col-lg-12 col-md-12 text-center">
+                    <h1 id="fh5co-logo"><a href="index.html">My Videos <sup>TM</sup></a></h1>
+                    <form method="post" action="/Home/SearchVideoList/">
+                        <input type="search" name="keyword" placeholder="Search" required />
+                        <input type="submit" value="Search" id="search_id" />
+                        @*<button type="submit" formaction="/Home.SearchVideoList"><a href="/Home/SearchVideoList/"></a>Search</button>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END #fh5co-header -->
+    <div class="container-fluid">
+        <div class="row fh5co-post-entry">
+
+    @if (getmyvideos != null && getmyvideos.Count > 0)
+    {
+        int a = 0;
+        foreach (var video1 in getmyvideos)
+        {
+            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                <figure>
+
+                    <a href="/Video/Play?id=@video1.id"><video src="@video1.source" class="img-responsive"></video></a>
+
+                </figure>
+                <span class="fh5co-meta"><a href="/Video/UserVideos?uploaderemail=@video1.uploadedby">@video1.uploadedby</a></span>
+                <h2 class="fh5co-article-title"><a href="/Video/Play?id=@video1.id">@video1.title</a></h2>
+                @*<span class="fh5co-meta fh5co-date">@video1.uploadedat</span>*@
+                @*<span class="fh5co-meta"><a href="/Video/EditVideo?id=@a">Edit Video</a></span>*@
+            </article>
+            a++;
+        }
+    }
+            <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+
+            <div class="clearfix visible-xs-block"></div>
+        </div>
+    </div>
+
+    <script src="~/Assets/Homepagevideotemplate/js/jquery.min.js"></script>
+    <script src="~/Assets/Homepagevideotemplate/js/jquery.easing.1.3.js"></script>
+    <script src="~/Assets/Homepagevideotemplate/js/bootstrap.min.js"></script>
+    <script src="~/Assets/Homepagevideotemplate/js/jquery.waypoints.min.js"></script>
+    <script src="~/Assets/Homepagevideotemplate/js/main.js"></script>
+
+</body>
+</html>

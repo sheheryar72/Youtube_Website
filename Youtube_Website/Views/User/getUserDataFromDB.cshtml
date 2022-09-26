@@ -1,0 +1,32 @@
+﻿@model Youtube_Website.Models.User
+@{
+    var getuserdata = (Youtube_Website.Models.User)ViewBag.userdata;
+
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    @* <div>
+           @if (getuserdata != null && getuserdata.Count > 0)
+            {
+                foreach (var user1 in getuserdata)
+                {
+                    <p>@user1.name</p>
+                    <p>@user1.email</p>
+                    <p>@user1.password</p>
+                }
+            }
+            <p>@ViewBag.email</p>
+        </div>*@
+
+    <p>@getuserdata.name</p>
+    <p>@getuserdata.email</p>
+    <p>@getuserdata.password</p>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign In Form</title>
+
+    <!-- Font Icon -->
+    <a href="~/Views/User/SignIn.cshtml">~/Views/User/SignIn.cshtml</a>
+    <link rel="stylesheet" href="~/Assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+
+    <style>
+        input#submit {
+            background: #000;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" action="/User/AuthenticateUser/" id="signup-form" class="signup-form">
+                        <h2 class="form-title">Login Here</h2>
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="email" placeholder="Your Email" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="password" id="password" placeholder="Password" />
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                       
+                        @if(TempData["error"] != null)
+                        {
+                            <p class="loginhere-link" style="color: red; text-align: center ">@TempData["error"]</p><br />
+                        }
+
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up" />
+                        </div>
+                    </form>
+                    <p class="loginhere">
+                        Don't have a account Signup here ? <a href="/User/SignUp/" class="loginhere-link">Signup here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

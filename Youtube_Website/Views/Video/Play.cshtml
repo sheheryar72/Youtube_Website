@@ -1,0 +1,251 @@
+﻿@model Youtube_Website.Models.Video
+
+<!--@{
+    Layout = null;
+    bool IsUserLoggedIn = Session["email"] != null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <video src="@Model.source" controls></video>
+        <h1>@Model.title</h1>
+        <p>@Model.description</p>
+        <a href="@Model.uploadedby">@Model.uploadedby</a>-->
+        @*<p id="date"></p>
+            <script>
+            document.getElementById("date").innerHTML = Date();
+            </script>*@
+
+    <!--</div>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Play Video</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+    <meta name="author" content="FREEHTML5.CO" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Assets/Homepagevideotemplate/css/animate.css">
+    <link rel="stylesheet" href="~/Assets/Homepagevideotemplate/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assets/Homepagevideotemplate/css/bootstrap.css">
+
+    <link rel="stylesheet" href="~/Assets/Homepagevideotemplate/css/style.css">
+
+    <script src="js/modernizr-2.6.2.min.js"></script>
+
+    <style>
+        #fh5co-header {
+            padding: 1em 1em;
+        }
+
+            #fh5co-header .fh5co-nav-toggle {
+                top: 1em;
+            }
+
+        h1, .h1, h2, .h2, h3, .h3 {
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+
+
+        #fh5co-header .fh5co-social {
+            position: absolute !important;
+            right: 3em !important;
+            top: 0px;
+            z-index: 99;
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="fh5co-offcanvas">
+        <a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
+        <div class="fh5co-bio">
+            <figure>
+                <img src="~/Assets/Homepagevideotemplate/images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+            </figure>
+            <h3 class="heading">About Me</h3>
+            <h2>@Session["email"]</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+            <ul class="fh5co-social">
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-facebook"></i></a></li>
+                <li><a href="#"><i class="icon-instagram"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="fh5co-menu">
+            <h3 style="color: orange;">Your Account</h3>
+            <div class="fh5co-box">
+
+                <h3 class="heading">@Session["name"]</h3>
+                <ul>
+                    @if (IsUserLoggedIn)
+                    {
+                        <li><a href="/Home/Index/">Home</a></li>
+                        <li><a href="/Video/MyVideos/">My Videos</a></li>
+                        <li><a href="/User/updateUserInfo/">Settings</a></li>
+                        <li><a href="/User/Logout">Logout</a></li>
+                        <li><button><a href="/Video/Upload/">Upload Video</a></button></li>
+                    }
+                    else
+                    {
+                        <li><a href="/User/SignIn/">Signin</a></li>
+                        <li><a href="/User/SignUp/">Signup</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="fh5co-box">
+                <h3 class="heading">Search</h3>
+                <form action="#">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Type a keyword">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <header id="fh5co-header">
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+                <ul class="fh5co-social">
+                    <li><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon-facebook"></i></a></li>
+                    <li><a href="#"><i class="icon-instagram"></i></a></li>
+                </ul>
+                <div class="col-lg-12 col-md-12 text-center">
+                    <h1 id="fh5co-logo"><a href="index.html"> Play Video<sup>TM</sup></a></h1>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+    <a href="/Home/index/" class="fh5co-post-prev"><span><i class="icon-chevron-left"></i> Prev</span></a>
+    <a href="#" class="fh5co-post-next"><span>Next <i class="icon-chevron-right"></i></span></a>
+    <div class="container-fluid">
+        <div class="row fh5co-post-entry single-entry">
+            <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                <figure class="animate-box">
+
+                    <video src="@Model.source" controls class="img-responsive"></video>
+
+                </figure>
+                <span class="fh5co-meta animate-box"><a href="single.html">Travel</a></span>
+                <h2 class="fh5co-article-title animate-box"><a href="single.html">@Model.title</a></h2>
+                <span class="fh5co-meta fh5co-date animate-box">March 6th, 2016</span>
+
+                <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+
+                    <div class="row rp-b">
+                        <div class="col-md-12 animate-box">
+                            <blockquote>
+                                <p>&ldquo; @Model.description &rdquo; <cite>&mdash; @Model.uploadedby</cite></p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </article>
+    </div>
+    </div>
+
+    <h2>Comments</h2>
+
+    @if (IsUserLoggedIn)
+    {
+        <input type="hidden" id="current-user-email" value="@Session["email"]" />
+    }
+
+    @if (IsUserLoggedIn)
+    {
+    <div>
+        <input type="search" id="comment-input" placeholder="Type Your Comment Here" />
+        <button type="button" id="add-comment-btn">Send</button>
+    </div>
+    }
+            else
+            {
+                <p>Please<a href="/User/SignIn/"> Login</a> to Comment</p>
+            }
+
+        <div id="comments-div">
+            <ul id="comments"></ul>
+        </div>
+
+        <script src="~/Scripts/jquery-1.6.4.min.js"></script>
+        <script src="~/Scripts/jquery.signalR-2.4.2.min.js"></script>
+        <script src="~/signalr/hubs"></script>
+
+        <script>
+            window.addEventListener("load", function () {
+
+                var comments_hub = $.connection.commentsHub;
+
+                comments_hub.clients.newMessage = function (userEmail, comment) {
+
+                    $('#comments').append(`<li><strong>${userEmail}: ${comment}</strong></li>`);
+
+                    console.log("newMassage Function Called");
+
+                    console.log({ userEmail, comment });
+                }
+                $.connection.hub.start().done(function () {
+
+                    console.log("Hub Started");
+
+                    $('#add-comment-btn').click(save_comment);
+                });
+                function save_comment() {
+                        
+                    const currentUuserEmail = $('#current-user-email').val();
+                    const comment = $('#comment-input').val();
+
+                    comments_hub.server.comment(currentUuserEmail, comment);
+
+                    $('#comment-input').val('');
+
+                    $('#comments').append(`<li><strong>${currentUserEmail}: ${comment}</strong></li>`);
+                }
+            });
+        </script>
+
+        <script src="~/Assets/Homepagevideotemplate/js/jquery.min.js"></script>
+        <script src="~/Assets/Homepagevideotemplate/js/jquery.easing.1.3.js"></script>
+        <script src="~/Assets/Homepagevideotemplate/js/bootstrap.min.js"></script>
+        <script src="~/Assets/Homepagevideotemplate/js/jquery.waypoints.min.js"></script>
+        <script src="~/Assets/Homepagevideotemplate/js/main.js"></script>
+    </body>
+</html>
